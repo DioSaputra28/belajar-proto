@@ -3,10 +3,10 @@ name: Pull Request - Check Protobuf - Go
 on:
   pull_request:
     paths:
-      - 'proto/**.proto'
+      - "proto/**.proto"
 
 jobs:
-  genereate-protobuf-go:
+  generate-protobuf-go:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
@@ -17,11 +17,11 @@ jobs:
       - name: Install Go Runtime
         uses: actions/setup-go@v4
         with:
-          go-version: '1.25.x'
+          go-version: "1.22.x"
           check-latest: false
           cache: true
-      
+
       - name: Generate Go Source
         shell: bash
-        run:
+        run: |
           make pipeline-build
